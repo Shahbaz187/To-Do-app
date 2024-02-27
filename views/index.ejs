@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo List</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(70deg ,  #18974d , #53e690);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+.box{
+    width: 650px;
+    min-height: 500px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+.box input{
+    width: 88%;
+    padding: 5px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.box button{
+    padding: 5px 16px;
+    background: #cfa706;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 2px;
+}
+.box ul{
+    list-style: none;
+    margin-top: 1rem;
+}
+.box ul li{
+    background: #cfa706;
+    padding: 10px 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-top: 1rem;
+    padding-right: 1.5rem;
+    position: relative;
+}
+.box ul li i{
+    position: absolute;
+    right: 3%;
+    top: 15px;
+    font-size: 1.2rem;
+    color: black !important;
+    cursor: pointer;
+}
+.done{
+    color: rgba(0, 0, 0, 0.3);
+    background: #ffa74f !important;
+    text-decoration: line-through;
+}
+    </style>
+<body>
+    <div class="container">
+        <div class="box">
+            <form action="/" method="post">
+                <input type="text" name="newitem" placeholder="Enter Your Task">
+                <button type="submit">Add</button>
+            </form>
+            <ul>
+                <li>Buy Food</li>
+                <li>Cook Food</li>
+                <li>Eat Food</li>
+                <% for ( i = 0; i < newItems.length; i++) { %>
+                    <li><%= newItems[i] %></li>
+               <% }  %>
+            </ul>
+        </div>
+    </div>
+    <script>
+      const li = document.querySelectorAll("li");
+      for (let i = 0; i < li.length; i++) {
+        li[i].addEventListener("click" , () => {
+            li[i].classList.toggle("done");
+        })
+      }
+    </script>
+</body>
+
+</html>
